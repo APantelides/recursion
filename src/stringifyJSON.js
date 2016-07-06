@@ -10,5 +10,7 @@ var stringifyJSON = function(obj) {
 		return obj.toString();
 	} else if (obj === null) {
 		return 'null';
+	} else if (typeof obj === "boolean") {
+		return obj.toString()
 	}
 };
