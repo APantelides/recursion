@@ -22,5 +22,28 @@ var stringifyJSON = function(obj) {
 		})
 
 		return '[' + arr + ']';
+	} else if (typeof obj === "object") {
+		var keys = Object.keys(obj);
+		var result = '';
+		if(keys.length>0) {
+
+			for (var i = 0; i<keys.length; i++) {
+				var key = keys[i];
+				if(typeof key === "function" || key === undefined || obj[key] === undefined || typeof obj[key] === "function"){
+
+				} else {
+
+					if(i === keys.length - 1) {
+						result += stringifyJSON(key)+':'+stringifyJSON(obj[key])
+					} else {
+						result += stringifyJSON(key)+':'+stringifyJSON(obj[key])+',';
+					}
+				}
+			} 
+			return '{' + result + '}'
+		
+		} else {
+			return '{}'
+		}
 	}
 };
