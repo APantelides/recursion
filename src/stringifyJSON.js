@@ -11,6 +11,8 @@ var stringifyJSON = function(obj) {
 	} else if (obj === null) {
 		return 'null';
 	} else if (typeof obj === "boolean") {
-		return obj.toString()
+		return obj.toString();
+	} else if (typeof obj === "string") {
+		return '"' + obj + '"';
 	}
 };
